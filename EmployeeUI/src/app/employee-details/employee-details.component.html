@@ -1,0 +1,40 @@
+<div class="jumbotron py-3">
+    <h1 class="display-4 text-center"> Employee Detail Register </h1>
+</div>
+<div class="row">
+    
+    <div class="col-md-3 col-sm-3">
+        <button class="btn btn-info btn lg btn-block" type="button"(click)="AddNewRecord()">Add New Employee</button>
+    </div>
+</div>
+<div style="height: 10px;"></div>
+<div class="row">
+    <div class="col-md-6 col-sm-6">
+        <table class="table">   
+            <thead class="thead-light">
+                <tr>
+                    <th>Employee Name</th>
+                    <th>Department</th>
+                    <th>Job Title</th>
+                    <th>Phone Extension</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody> 
+                <tr *ngFor="let employee of service.list">
+                    <td (click)="PopulateForm(employee)">{{employee.firstName}} {{employee.lastName}}</td>
+                    <td (click)="PopulateForm(employee)">{{employee.department}}</td>
+                    <td (click)="PopulateForm(employee)">{{employee.jobTitle}}</td>
+                    <td (click)="PopulateForm(employee)">{{employee.phoneExtension}}</td>
+                    <td >
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="DeleteEmployeeRecord(employee.employeeId)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6 col-sm-6">
+        <app-employee-detail-form></app-employee-detail-form>
+    </div>
+</div>
+
